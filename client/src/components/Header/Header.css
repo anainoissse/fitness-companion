@@ -1,0 +1,214 @@
+/* src/components/Header/Header.css */
+
+/* Основные стили шапки */
+.app-header {
+  /* background-color: #1a1a1a; */
+  background: transparent;
+  width: 80vw;
+  margin: 0 auto;
+  border-bottom: 3px solid rgba(255,255,255,0.7);
+  border-left: none;
+  border-right: none;
+  color: white;
+  padding: 0.5rem 0.75rem;
+  box-shadow: none;
+  /* position: sticky; */
+  /* top: 0; */
+  /* z-index: 1000; */
+  transition: all 0.3s ease;
+  animation: fadeIn 0.5s ease forwards;
+}
+
+.header-container {
+  width: 100%;
+  margin: 0;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  position: relative;
+  padding: 0;
+}
+
+/* Стили логотипа */
+.logo-link {
+  flex: 0 0 auto;
+  margin-left: 1rem;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  text-decoration: none;
+  color: inherit;
+  transition: transform 0.2s ease;
+}
+
+.logo-link:hover {
+  transform: scale(1.02);
+}
+
+.logo-link h1, .gymbro-title {
+  font-size: 1.25rem;
+  font-weight: 700;
+  margin: 0;
+  color: white;
+  letter-spacing: 1px;
+  background: none;
+  -webkit-background-clip: unset;
+  background-clip: unset;
+}
+
+.logo {
+  width: 50px;
+  height: 50px;
+  object-fit: contain;
+}
+
+/* Навигационное меню */
+.main-nav {
+  display: flex;
+  align-items: center;
+  gap: 2rem;
+  position: static;
+  transform: none;
+  left: unset;
+}
+
+.main-nav a {
+  color: #e0e0e0;
+  text-decoration: none;
+  font-weight: 500;
+  font-size: 1.15rem;
+  position: relative;
+  padding: 0.5rem 0.5rem;
+  transition: color 0.3s ease;
+}
+
+.main-nav a:hover {
+  color: white;
+}
+
+.main-nav a::after {
+  content: '';
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 0;
+  height: 2px;
+  background: linear-gradient(90deg, #f5664c, #f5a34c);
+  transition: width 0.3s ease;
+}
+
+.main-nav a:hover::after,
+.main-nav a.active::after {
+  width: 100%;
+}
+
+.main-nav a.active {
+  color: white;
+  font-weight: 600;
+}
+
+/* Кнопка выхода */
+.logout-btn {
+  flex: 0 0 auto;
+  margin-right: 1rem;
+  margin-left: 0;
+  background: linear-gradient(90deg, #f5664c, #f5a34c);
+  color: white;
+  border: none;
+  padding: 0.5rem 1.2rem;
+  border-radius: 25px;
+  cursor: pointer;
+  font-weight: 500;
+  transition: all 0.3s ease;
+  box-shadow: 0 2px 5px rgba(245, 102, 76, 0.3);
+  font-size: 1rem;
+}
+
+.logout-btn:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 4px 8px rgba(245, 102, 76, 0.4);
+}
+
+/* Мобильное меню (адаптивность) */
+.mobile-menu-btn {
+  display: none !important;
+}
+
+/* Медиа-запросы для адаптивности */
+@media (max-width: 768px) {
+  .app-header {
+    width: 98vw;
+    padding: 0.5rem 0.2rem;
+    border-bottom-width: 2px;
+  }
+  .header-container {
+    flex-direction: column;
+    align-items: stretch;
+    gap: 0.5rem;
+  }
+  .logo-link {
+    margin-left: 0.5rem;
+    gap: 7px;
+  }
+  .gymbro-title, .logo-link h1 {
+    font-size: 1rem;
+  }
+  .main-nav {
+    flex-direction: row;
+    justify-content: center;
+    gap: 1rem;
+    width: 100%;
+    margin-top: 0.2rem;
+  }
+  .main-nav a {
+    font-size: 1rem;
+    padding: 0.3rem 0.3rem;
+  }
+  .logout-btn {
+    font-size: 0.95rem;
+    padding: 0.4rem 0.9rem;
+    margin: 0.2rem 0.5rem 0.2rem auto;
+  }
+}
+
+@media (max-width: 480px) {
+  .app-header {
+    width: 100vw;
+    padding: 0.3rem 0.1rem;
+    border-bottom-width: 2px;
+  }
+  .header-container {
+    flex-direction: column;
+    align-items: stretch;
+    gap: 0.3rem;
+  }
+  .logo-link {
+    margin-left: 0.2rem;
+    gap: 5px;
+  }
+  .gymbro-title, .logo-link h1 {
+    font-size: 0.9rem;
+  }
+  .main-nav {
+    flex-direction: row;
+    justify-content: center;
+    gap: 0.5rem;
+    width: 100%;
+    margin-top: 0.1rem;
+  }
+  .main-nav a {
+    font-size: 0.9rem;
+    padding: 0.2rem 0.2rem;
+  }
+  .logout-btn {
+    font-size: 0.85rem;
+    padding: 0.3rem 0.7rem;
+    margin: 0.1rem 0.2rem 0.1rem auto;
+  }
+}
+
+/* Анимации */
+@keyframes fadeIn {
+  from { opacity: 0; transform: translateY(-10px); }
+  to { opacity: 1; transform: translateY(0); }
+}

@@ -1,0 +1,24 @@
+# Зависимости
+node_modules/
+.server/node_modules/
+.client/node_modules/
+
+# Файлы окружения
+.env
+.env.local
+
+# Логи и временные файлы
+*.log
+*.tmp
+
+# Системные файлы
+.DS_Store
+.idea/
+
+# Автогенерируемые файлы
+dist/
+build/
+uploads/  # если храните фото локально, но хотите игнорировать их в репозитории
+
+# Для редакторов
+.vscode/

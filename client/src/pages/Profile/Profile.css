@@ -1,0 +1,508 @@
+/* Базовые сбросы и кросс-браузерные стили */
+:root {
+    --primary-color: #f5664c;
+    --primary-dark: #d4553e;
+    --black: #1a1a1a;
+    --white: #ffffff;
+    --gray-light: #f5f5f5;
+    --gray-medium: #e0e0e0;
+    --gray-dark: #757575;
+    --disabled-bg: #f0f0f0;
+    --disabled-text: #a0a0a0;
+    --error: #e74c3c;
+    --success: #2ecc71;
+    --focus-ring: 0 0 0 3px rgba(245, 102, 76, 0.3);
+    --transition: all 0.2s ease;
+    --background-gradient: linear-gradient(135deg, #fff 0%, #f5664c 100%);
+}
+
+*,
+*::before,
+*::after {
+    box-sizing: border-box;
+}
+
+html, body {
+    min-height: 100%;
+    height: 100%;
+    -webkit-text-size-adjust: 100%;
+    -webkit-tap-highlight-color: transparent;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+    background: var(--background-gradient);
+}
+
+body {
+    margin: 0;
+    padding: 0;
+    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif, 'Apple Color Emoji', 'Segoe UI Emoji', 'Segoe UI Symbol';
+    line-height: 1.5;
+    color: var(--black);
+}
+
+/* Основные стили контейнера */
+.profile-edit-container {
+    max-width: 800px;
+    margin: 1rem auto;
+    padding: 1.5rem;
+    background-color: var(--white);
+    border-radius: 12px;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.08);
+}
+
+.profile-edit-title {
+    font-size: clamp(1.5rem, 5vw, 2rem);
+    font-weight: 600;
+    color: var(--black);
+    margin-bottom: 1.5rem;
+    text-align: center;
+    position: relative;
+}
+
+    .profile-edit-title::after {
+        content: '';
+        display: block;
+        width: 60px;
+        height: 4px;
+        background-color: var(--primary-color);
+        margin: 0.5rem auto 0;
+        border-radius: 2px;
+    }
+
+.profile-edit-form {
+    display: flex;
+    flex-direction: column;
+    gap: 1.25rem;
+}
+
+/* Секция с фото */
+.photo-upload-section {
+    display: flex;
+    justify-content: center;
+    margin-bottom: 0.5rem;
+}
+
+.photo-preview-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 0.75rem;
+}
+
+.profile-photo {
+    width: 120px;
+    height: 120px;
+    border-radius: 50%;
+    object-fit: cover;
+    border: 3px solid var(--gray-medium);
+    transition: var(--transition);
+}
+
+.photo-upload-label {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    cursor: pointer;
+}
+
+.photo-upload-input {
+    position: absolute;
+    width: 1px;
+    height: 1px;
+    padding: 0;
+    margin: -1px;
+    overflow: hidden;
+    clip: rect(0, 0, 0, 0);
+    white-space: nowrap;
+    border: 0;
+}
+
+.photo-upload-text {
+    color: var(--primary-color);
+    font-weight: 500;
+    text-decoration: underline;
+    transition: var(--transition);
+    font-size: 0.9rem;
+}
+
+    .photo-upload-text:hover {
+        color: var(--primary-dark);
+    }
+
+/* Поля формы */
+.name-fields {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    gap: 1rem;
+}
+
+.form-section {
+    display: flex;
+    flex-direction: column;
+    gap: 0.5rem;
+}
+
+.form-label,
+.section-label,
+.radio-label,
+.checkbox-label,
+.profile-edit-title,
+.profile-details,
+.detail-section,
+.bio-text,
+.user-meta h2,
+.user-meta p,
+.detail-section h3,
+.detail-section p,
+.detail-section ul,
+.detail-section li,
+.char-counter {
+    color: #111 !important;
+}
+
+.form-label.disabled {
+    color: var(--disabled-text);
+}
+
+.form-input,
+.form-select,
+.form-textarea {
+    width: 100%;
+    padding: 0.75rem 1rem;
+    border: 1px solid var(--gray-medium);
+    border-radius: 8px;
+    font-size: 1rem;
+    transition: var(--transition);
+    background-color: var(--white);
+    font-family: inherit;
+}
+
+    .form-input:focus,
+    .form-select:focus,
+    .form-textarea:focus {
+        outline: none;
+        border-color: var(--primary-color);
+        box-shadow: var(--focus-ring);
+    }
+
+    .form-input.disabled,
+    .form-select.disabled {
+        background-color: var(--disabled-bg);
+        color: var(--disabled-text);
+        cursor: not-allowed;
+    }
+
+.form-textarea {
+    resize: vertical;
+    min-height: 120px;
+}
+
+.form-help-text {
+    color: var(--gray-dark);
+    font-size: 0.85rem;
+    margin-top: 0.25rem;
+    display: block;
+}
+
+/* Группы чекбоксов и радиокнопок */
+fieldset {
+    border: none;
+    padding: 0;
+    margin: 0;
+}
+
+legend {
+    padding: 0;
+    margin-bottom: 0.5rem;
+}
+
+.checkbox-group,
+.radio-group {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 1rem;
+}
+
+.checkbox-label,
+.radio-label {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    cursor: pointer;
+    user-select: none;
+    font-size: 0.95rem;
+}
+
+.checkbox-input,
+.radio-input {
+    position: absolute;
+    opacity: 0;
+    width: 1px;
+    height: 1px;
+}
+
+.checkbox-custom {
+    display: inline-block;
+    width: 20px;
+    height: 20px;
+    border: 2px solid var(--gray-dark);
+    border-radius: 4px;
+    position: relative;
+    transition: var(--transition);
+    flex-shrink: 0;
+}
+
+.radio-custom {
+    display: inline-block;
+    width: 20px;
+    height: 20px;
+    border: 2px solid var(--gray-dark);
+    border-radius: 50%;
+    position: relative;
+    transition: var(--transition);
+    flex-shrink: 0;
+}
+
+.checkbox-input:checked ~ .checkbox-custom,
+.radio-input:checked ~ .radio-custom {
+    border-color: var(--primary-color);
+    background-color: var(--primary-color);
+}
+
+    .checkbox-input:checked ~ .checkbox-custom::after {
+        content: '';
+        position: absolute;
+        left: 5px;
+        top: 1px;
+        width: 6px;
+        height: 12px;
+        border: solid white;
+        border-width: 0 2px 2px 0;
+        transform: rotate(45deg);
+    }
+
+    .radio-input:checked ~ .radio-custom::after {
+        content: '';
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+        width: 10px;
+        height: 10px;
+        background-color: white;
+        border-radius: 50%;
+    }
+
+.checkbox-input:focus ~ .checkbox-custom,
+.radio-input:focus ~ .radio-custom {
+    box-shadow: var(--focus-ring);
+}
+
+.radio-group.disabled .radio-label,
+.checkbox-group.disabled .checkbox-label {
+    color: var(--disabled-text);
+    cursor: not-allowed;
+}
+
+.radio-group.disabled .radio-custom,
+.checkbox-group.disabled .checkbox-custom {
+    border-color: var(--disabled-text);
+    background-color: var(--disabled-bg);
+}
+
+/* Валидация и счетчик символов */
+.char-counter {
+    margin-left: 0.5rem;
+    font-size: 0.8rem;
+    color: var(--gray-dark);
+    font-weight: normal;
+}
+
+    .char-counter.warning {
+        color: var(--error);
+    }
+
+.validation-message {
+    color: var(--error);
+    font-size: 0.85rem;
+    margin-top: 0.25rem;
+}
+
+/* Кнопки и действия формы */
+.form-actions {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 1rem;
+    margin-top: 1.5rem;
+}
+
+.submit-button {
+    padding: 0.75rem 2rem;
+    background-color: var(--primary-color);
+    color: white;
+    border: none;
+    border-radius: 8px;
+    font-size: 1rem;
+    font-weight: 500;
+    cursor: pointer;
+    transition: var(--transition);
+    position: relative;
+}
+
+    .submit-button:hover:not(:disabled) {
+        background-color: var(--primary-dark);
+        transform: translateY(-1px);
+    }
+
+    .submit-button:active:not(:disabled) {
+        transform: translateY(0);
+    }
+
+    .submit-button:disabled {
+        background-color: var(--gray-medium);
+        color: var(--disabled-text);
+        cursor: not-allowed;
+        transform: none;
+    }
+
+.spinner {
+    display: inline-block;
+    width: 1rem;
+    height: 1rem;
+    border: 2px solid rgba(255, 255, 255, 0.3);
+    border-radius: 50%;
+    border-top-color: white;
+    animation: spin 1s ease-in-out infinite;
+    margin-right: 0.5rem;
+}
+
+@keyframes spin {
+    to {
+        transform: rotate(360deg);
+    }
+}
+
+.success-message {
+    color: var(--success);
+    font-weight: 500;
+    text-align: center;
+}
+
+.physical-fields {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    gap: 1rem;
+    margin-bottom: 1rem;
+}
+
+/* Специальные классы для доступности */
+.sr-only {
+    position: absolute;
+    width: 1px;
+    height: 1px;
+    padding: 0;
+    margin: -1px;
+    overflow: hidden;
+    clip: rect(0, 0, 0, 0);
+    white-space: nowrap;
+    border: 0;
+}
+
+/* Адаптивные стили */
+@media (max-width: 768px) {
+    .profile-edit-container {
+        margin: 0;
+        padding: 1.25rem;
+        border-radius: 0;
+    }
+
+    .checkbox-group,
+    .radio-group {
+        flex-direction: column;
+        gap: 0.75rem;
+    }
+}
+
+@media (max-width: 480px) {
+    .name-fields {
+        grid-template-columns: 1fr;
+    }
+
+    .profile-photo {
+        width: 100px;
+        height: 100px;
+    }
+
+    .form-input,
+    .form-select,
+    .form-textarea {
+        padding: 0.65rem 0.9rem;
+        font-size: 0.95rem;
+    }
+}
+
+/* Кросс-браузерные исправления */
+select.form-select {
+    -webkit-appearance: none;
+    -moz-appearance: none;
+    appearance: none;
+    background-image: url("data:image/svg+xml;charset=UTF-8,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='currentColor' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'%3e%3cpolyline points='6 9 12 15 18 9'%3e%3c/polyline%3e%3c/svg%3e");
+    background-repeat: no-repeat;
+    background-position: right 0.75rem center;
+    background-size: 1rem;
+    padding-right: 2rem;
+}
+
+/* Для IE11 */
+@media all and (-ms-high-contrast: none), (-ms-high-contrast: active) {
+    .profile-edit-container {
+        display: block;
+    }
+
+    .name-fields {
+        display: flex;
+        flex-direction: column;
+    }
+}
+
+/* Поддержка Firefox */
+@-moz-document url-prefix() {
+    .form-input,
+    .form-select,
+    .form-textarea {
+        padding: 0.7rem 1rem;
+    }
+}
+
+/* Градиентный фон для всей страницы профиля */
+.profile-page {
+    background: var(--background-gradient);
+    min-height: 100vh;
+    width: 100%;
+    position: static;
+    z-index: auto;
+}
+
+.profile-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 30px;
+}
+
+.edit-button {
+    background: #4CAF50;
+    color: white;
+    border: none;
+    padding: 10px 15px;
+    border-radius: 4px;
+    cursor: pointer;
+}
+
+.profile-view, .profile-edit-form {
+    background: white;
+    padding: 20px;
+    border-radius: 8px;
+    box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+}

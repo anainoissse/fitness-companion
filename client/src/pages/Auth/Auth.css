@@ -1,0 +1,188 @@
+body, html {
+    margin: 0;
+    padding: 0;
+    height: 100%;
+    font-family: Arial, sans-serif;
+}
+
+.container {
+    display: flex;
+    height: 100vh;
+    position: relative;
+    flex-direction: column;
+}
+
+.left-side {
+    flex: 1;
+    background: linear-gradient(to right, rgba(0, 0, 0, 0) 0%, rgba(0, 0, 0, 0.8) 50%, black 100%), url('../../../public/images/gym-image.jpg');
+    background-size: cover;
+    background-position: center;
+    position: relative;
+    display: none; /* Hide on mobile */
+}
+
+.right-side {
+    flex: 1;
+    background-color: black;
+    color: white;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    padding: 20px;
+}
+
+.tabs {
+    display: flex;
+    gap: 10px;
+    margin-bottom: 20px;
+    border-bottom: 2px solid transparent;
+    position: sticky;
+    top: 20px;
+    flex-wrap: wrap; /* Allow wrapping on smaller screens */
+}
+
+    .tabs button {
+        background: none;
+        border: none;
+        color: #ddd;
+        font-size: 16px;
+        cursor: pointer;
+        padding: 10px 15px;
+        transition: color 0.3s;
+    }
+
+        .tabs button.active,
+        .tabs button:hover {
+            color: #fff;
+            border-bottom: 2px solid #ff6347;
+        }
+
+.form-container {
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+    width: 90%;
+    max-width: 400px;
+    padding: 20px;
+    border: 2px solid #fff;
+    border-radius: 10px;
+    background-color: #3a3a3a;
+}
+
+    .form-container input {
+        padding: 10px;
+        font-size: 16px;
+        border: 1px solid #ccc;
+        border-radius: 5px;
+        width: 100%;
+        box-sizing: border-box;
+    }
+
+    .form-container button {
+        padding: 10px;
+        font-size: 16px;
+        border: none;
+        border-radius: 5px;
+        background-color: #ff6347;
+        color: white;
+        cursor: pointer;
+        transition: background-color 0.3s;
+    }
+
+        .form-container button:hover {
+            background-color: #ff4500;
+        }
+
+        .form-container button:disabled {
+            background-color: #888;
+            cursor: not-allowed;
+        }
+
+.reset-message {
+    color: #ff6347;
+    margin-top: 10px;
+}
+
+.password-input {
+    position: relative;
+}
+
+.toggle-password-button {
+    position: absolute;
+    right: 10px;
+    top: 50%;
+    transform: translateY(-50%);
+    background-color: white !important;
+    border: 1px solid #ddd;
+    border-radius: 50%;
+    width: 24px;
+    height: 24px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    cursor: pointer;
+    color: black;
+    font-size: 16px;
+}
+
+    .toggle-password-button:hover {
+        background-color: #f0f0f0;
+    }
+
+.error-message {
+    color: red;
+    margin-top: 10px;
+}
+
+.logo {
+    display: block;
+    width: 50%;
+    margin: 0 auto 20px;
+}
+
+/* Media Query for Tablets and Larger Screens */
+@media (min-width: 768px) {
+    .container {
+        flex-direction: row;
+    }
+
+    .left-side {
+        flex: 1.30;
+        display: block; /* Show on larger screens */
+    }
+
+    .right-side {
+        flex: 0.7;
+    }
+
+    .tabs {
+        gap: 20px;
+    }
+
+        .tabs button {
+            padding: 10px 20px;
+        }
+}
+
+/* Media Query for Screens Smaller than 400px */
+@media (max-width: 400px) {
+    .tabs button {
+        font-size: 14px;
+        padding: 8px 12px;
+    }
+
+    .form-container input,
+    .form-container button {
+        font-size: 14px;
+    }
+
+    .reset-message,
+    .error-message {
+        font-size: 14px;
+    }
+
+    .logo {
+        width: 60%;
+    }
+}
