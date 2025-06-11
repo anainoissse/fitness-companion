@@ -167,6 +167,7 @@ const Profile = () => {
             setUserData(response.data);
             setSuccess('Профиль успешно обновлен!');
             setIsEditing(false);
+            localStorage.setItem('feedNeedsRefresh', 'true');
             
             // Обновляем превью если было новое фото
             if (formData.photo) {

@@ -1,0 +1,690 @@
+<style type="text/css">.hide, .hide + label ~ div {    display: none; }   /* вид текста label */  .hide + label, .hide:checked + label, label { padding: 0;    color: rgb(0,95,150); font-weight:bold; font-size:14px;     cursor: pointer;    border-bottom: 1px dotted rgb(0,95,150);} /*вид текста label при активном переключателе */  .hide:checked + label {    color: red;    border-bottom: 0;} /* когда чекбокс активен показываем блоки с содержанием  */ .hide:checked + label + div {    display: block;    -moz-box-shadow: inset 3px 3px 10px #7d8e8f;    -webkit-box-shadow: inset 3px 3px 10px #7d8e8f;    box-shadow: inset 3px 3px 10px #7d8e8f;    padding: 20px; border-radius: 10px;}
+</style>
+<style type="text/css">div.budget * {color:green !important;}
+.full{width:100%;margin-bottom:10px;}
+.half{width:50%;margin-bottom:10px;}
+.hidehead{text-align: left; padding: 10px; padding-left:20px; /*margin-left: 10px;*/ background-color: rgb(255, 240, 240); border: 3px solid rgb(223, 0, 0); border-radius: 10px; cursor: pointer;}
+</style>
+<h2 style="text-align:center;">Вступительные испытания на программы бакалавриата и специалитета, проводимые НИУ &quot;МЭИ&quot; самостоятельно</h2>
+<!--
+<div class="full" > <a href="/info/planexamfirst.html" target="_blank" style="text-decoration: none;"><div class="hidehead ui-corner-all">
+<span style="color: rgb(73, 73, 73); font-size: 24px;">Расписание вступительных испытаний</span><div style="float: right; width: 40px; height: 20px; color: rgb(73, 73, 73); font-size: 24px;">»&nbsp;»                                                                                                                                                                                                                                                            
+      </div></div></a>
+</div>
+
+<div class="full"> <a href="/info/bakresults.html" target="_blank"><div class="hidehead ui-corner-all">
+<span style="color: rgb(73, 73, 73); font-size: 24px;">Результаты вступительных испытаний</span><div style="float: right; width: 40px; height: 20px; color: rgb(73, 73, 73); font-size: 24px;">»&nbsp;»                                                                                                                                                                                                                                                            
+      </div></div></a>
+</div>--><!--
+<div class="half"> <input id="hd-5" class="hide" type="checkbox" value="on" /> 
+    <label for="hd-5"> 
+      <div class="hidehead ui-corner-all"><span style="color: rgb(73, 73, 73); font-size: 24px;">Результаты</span> 
+      <div style="float: right; width: 40px; height: 20px; color: rgb(73, 73, 73); font-size: 24px;">»&nbsp;»                                                                                                                                                                                                                                                            
+      </div> </div>  </label> 
+    </div> 
+<a href="/info/bakresults.html" target="_blank">Результаты вступительных испытаний в 2023 году.</a>-->
+
+<div class="full"><input class="hide" id="hd-1" type="checkbox" value="on" /> <label for="hd-1"> </label>
+
+<div class="hidehead ui-corner-all"><label for="hd-1"><span style="color: rgb(73, 73, 73); font-size: 24px;">Общая информация о вступительных испытаниях</span> </label>
+
+<div style="float: right; width: 40px; height: 20px; color: rgb(73, 73, 73); font-size: 24px;"><label for="hd-1">&raquo;&nbsp;&raquo; </label></div>
+<label for="hd-1"> </label></div>
+
+<div>В качестве результатов общеобразовательных вступительных испытаний признаются:
+<ul>
+	<li>результаты ЕГЭ;</li>
+	<li>результаты вступительных испытаний, проводимых НИУ &laquo;МЭИ&raquo; самостоятельно.</li>
+</ul>
+<br />
+В случае если по вступительному испытанию установлены предметы по выбору, поступающие могут сдать испытания по одному или нескольким предметам.<br />
+В качестве результата вступительного испытания <u>засчитывается наиболее высокий</u> из результатов вступительных испытаний, которые имеются у поступающего и составляют не менее установленного минимального количества баллов.<br />
+<br />
+НИУ &laquo;МЭИ&raquo; самостоятельно проводит:
+<ul>
+	<li>общеобразовательные вступительные испытания;</li>
+	<li>творческие вступительные испытания;</li>
+	<li>вступительные испытания на базе профессионального образования (за исключением вступительных испытаний для поступающих на обучение на базе среднего профессионального образования, для которых НИУ &laquo;МЭИ&raquo; установил, что их формой является ЕГЭ).</li>
+</ul>
+<br />
+Продолжительность вступительных испытаний, проводимых НИУ &laquo;МЭИ&raquo; самостоятельно
+<table border="0" cellpadding="0" cellspacing="0" class="form-grid thin-grid align-left" width="100%">
+	<tbody>
+		<tr style="font-weight: bold; background-color: rgb(240, 255, 240);">
+			<td>Предмет</td>
+			<td width="200">Продолжительность</td>
+		</tr>
+		<tr>
+			<td>математика, основы инженерной математики, математика в экономике, физика, основы инженерной физики, рисунок</td>
+			<td>2 часа</td>
+		</tr>
+		<tr>
+			<td>иностранный язык, информатика и ИКТ, химия, информационные технологии в профессиональной деятельности</td>
+			<td>1 час 30 минут</td>
+		</tr>
+		<tr>
+			<td>литература, обществознание, основы общественных наук</td>
+			<td>1 час</td>
+		</tr>
+		<tr>
+			<td>русский язык, история, основы исторического знания, география</td>
+			<td>40 минут</td>
+		</tr>
+	</tbody>
+</table>
+<br />
+Форма вступительных испытаний, проводимых НИУ &laquo;МЭИ&raquo; самостоятельно
+<table border="0" cellpadding="0" cellspacing="0" class="form-grid thin-grid align-left" width="100%">
+	<tbody>
+		<tr style="font-weight: bold; background-color: rgb(240, 255, 240);">
+			<td>Предмет</td>
+			<td width="200">Форма испытания</td>
+		</tr>
+		<tr>
+			<td>математика, физика, русский язык, история, обществознание, география, иностранный язык, литература, информатика и ИКТ, химия</td>
+			<td>письменное испытание</td>
+		</tr>
+		<tr>
+			<td>основы инженерной математики, информационные технологии в профессиональной деятельности, основы инженерной физики, математика в экономике, основы исторического знания, основы общественных наук</td>
+			<td>письменное испытание</td>
+		</tr>
+		<tr>
+			<td>рисунок, портфолио</td>
+			<td>творческое испытание</td>
+		</tr>
+	</tbody>
+</table>
+<br />
+Вступительные испытания проводятся на русском языке.<br />
+Максимальное количество баллов за вступительные испытания, проводимые НИУ &laquo;МЭИ&raquo; самостоятельно - 100 баллов.</div>
+</div>
+
+<div class="full"><input class="hide" id="hd-3" type="checkbox" value="on" /> <label for="hd-3"> </label>
+
+<div class="hidehead ui-corner-all"><label for="hd-3"><span style="color: rgb(73, 73, 73); font-size: 24px;">Особенности проведения вступительных испытаний</span> </label>
+
+<div style="float: right; width: 40px; height: 20px; color: rgb(73, 73, 73); font-size: 24px;"><label for="hd-3">&raquo;&nbsp;&raquo; </label></div>
+<label for="hd-3"> </label></div>
+<label for="hd-3"> </label>
+
+<div>НИУ &laquo;МЭИ&raquo; проводит вступительные испытания <!--очно и--> <b>с использованием дистанционных технологий</b>. <!--(последнее в случае принятия решения о проведении испытаний дистанционно)--><br />
+<br />
+Для принятия участия во вступительном испытании с применением дистанционных технологий необходимо:
+<ul>
+	<li>наличие персонального компьютера или ноутбука;</li>
+	<li>подключение к сети Internet (скорость соединения от 5 Мбит/сек);</li>
+	<li>оснащение Web-камерой, микрофоном и динамиками;</li>
+	<li>наличие сканирующего устройства или телефона с камерой или фотоаппарата, позволяющих создавать цифровые изображения для последующей их отправки посредством электронных форм, формат загружаемого файла - pdf, размер файла - не более 20 Мб.</li>
+</ul>
+<!--<br>Протестировать оборудование можно перейдя по <a target="_blank" href="https://www.webex.com/test-meeting.html">ссылке</a>.
+<br><br>
+<a target="_blank" href="/docs/examus/dist_vi.pdf">Порядок проведения вступительных испытаний с применением дистанционных технологий при приеме на обучение по программам бакалавриата, программам специалитета, программам магистратуры и программам подготовки научно-педагогических кадров в аспирантуре в НИУ «МЭИ».</a>
+<br><br>
+<a target="_blank" href="/docs/examus/inst_vi.pdf">Инструкция по прохождению вступительного испытания в НИУ «МЭИ» с применением дистанционных технологий при поступлении на программы бакалавриата.</a>--></div>
+</div>
+
+<div class="full"><input class="hide" id="hd-6" type="checkbox" value="on" /> <label for="hd-6"> </label>
+
+<div class="hidehead ui-corner-all"><label for="hd-6"><span style="color: rgb(73, 73, 73); font-size: 24px;">Минимальное количество баллов по вступительным испытаниям</span> </label>
+
+<div style="float: right; width: 40px; height: 20px; color: rgb(73, 73, 73); font-size: 24px;"><label for="hd-6">&raquo;&nbsp;&raquo; </label></div>
+<label for="hd-6"> </label></div>
+<label for="hd-6"> </label>
+
+<div><b>Минимальное количество баллов по результатам ЕГЭ, вступительных испытаний, проводимых вузом самостоятельно, подтверждающие успешное прохождение вступительных испытаний представлено в таблице:</b>
+
+<table border="0" cellpadding="0" cellspacing="0" class="form-grid thin-grid" style="text-align: left;">
+	<tbody>
+		<tr style="font-weight: bold; background-color: rgb(240, 255, 240);">
+			<td class="xl66" height="20" style="height: 15pt; width: 141pt;" width="188"><b>Вступительные испытания</b></td>
+			<td class="xl65" style="width: 107pt;" width="142"><b>Минимальные баллы</b></td>
+		</tr>
+		<tr height="20" style="height: 15pt;">
+			<td class="xl67" height="20" style="text-align: left; height: 15pt; width: 141pt;" width="188">География</td>
+			<td align="right" class="xl68" style="width: 107pt;" width="142">40</td>
+		</tr>
+		<tr height="20" style="height: 15pt;">
+			<td class="xl67" height="20" style="text-align: left; height: 15pt; width: 141pt;" width="188">Иностранный язык</td>
+			<td align="right" class="xl68" style="width: 107pt;" width="142">30</td>
+		</tr>
+		<tr height="20" style="height: 15pt;">
+			<td class="xl67" height="20" style="height: 15pt; width: 141pt;" width="188">Информатика и ИКТ</td>
+			<td align="right" class="xl68" style="width: 107pt;" width="142">44</td>
+		</tr>
+		<tr height="20" style="height: 15pt;">
+			<td class="xl67" height="20" style="height: 15pt; width: 141pt;" width="188">История</td>
+			<td align="right" class="xl68" style="width: 107pt;" width="142">36</td>
+		</tr>
+		<tr height="20" style="height: 15pt;">
+			<td class="xl67" height="20" style="height: 15pt; width: 141pt;" width="188">Литература</td>
+			<td align="right" class="xl68" style="width: 107pt;" width="142">40</td>
+		</tr>
+		<tr height="20" style="height: 15pt;">
+			<td class="xl67" height="20" style="height: 15pt; width: 141pt;" width="188">Математика</td>
+			<td align="right" class="xl68" style="width: 107pt;" width="142">40</td>
+		</tr>
+		<tr height="20" style="height: 15pt;">
+			<td class="xl67" height="20" style="height: 15pt; width: 141pt;" width="188">Обществознание</td>
+			<td align="right" class="xl68" style="width: 107pt;" width="142">45</td>
+		</tr>
+		<tr height="20" style="height: 15pt;">
+			<td class="xl67" height="20" style="height: 15pt; width: 141pt;" width="188">Русский язык</td>
+			<td align="right" class="xl68" style="width: 107pt;" width="142">40</td>
+		</tr>
+		<tr height="20" style="height: 15pt;">
+			<td class="xl67" height="20" style="height: 15pt; width: 141pt;" width="188">Физика</td>
+			<td align="right" class="xl68" style="width: 107pt;" width="142">39</td>
+		</tr>
+		<tr height="20" style="height: 15pt;">
+			<td class="xl67" height="20" style="height: 15pt; width: 141pt;" width="188">Химия</td>
+			<td align="right" class="xl68" style="width: 107pt;" width="142">39</td>
+		</tr>
+		<tr height="20" style="height: 15pt;">
+			<td class="xl67" height="20" style="height: 15pt; width: 141pt;" width="188">Рисунок</td>
+			<td align="right" class="xl68" style="width: 107pt;" width="142">40</td>
+		</tr>
+		<tr height="20" style="height: 15pt;">
+			<td class="xl67" height="20" style="height: 15pt; width: 141pt;" width="188">Портфолио</td>
+			<td align="right" class="xl68" style="width: 107pt;" width="142">40</td>
+		</tr>
+	</tbody>
+</table>
+</div>
+</div>
+
+<div class="full"><input class="hide" id="hd-7" type="checkbox" value="on" /> <label for="hd-7"> </label>
+
+<div class="hidehead ui-corner-all"><label for="hd-7"><span style="color: rgb(73, 73, 73); font-size: 24px;">Вступительные испытания для выпускников СПО</span> </label>
+
+<div style="float: right; width: 40px; height: 20px; color: rgb(73, 73, 73); font-size: 24px;"><label for="hd-7">&raquo;&nbsp;&raquo; </label></div>
+<label for="hd-7"> </label></div>
+<label for="hd-7"> </label>
+
+<div>
+<p><b>Вступительные испытания проводимые для лиц, поступающих на обучение на базе среднего профессионального образования с указанием минимальных баллов</b></p>
+
+<table border="0" cellpadding="0" cellspacing="0" class="form-grid thin-grid" style="text-align: left;">
+	<tbody>
+		<tr style="font-weight: bold; background-color: rgb(240, 255, 240);">
+			<td>
+			<p><b>Направление подготовки </b></p>
+			</td>
+			<td>
+			<p><b>Вступительные испытания профильной направленности </b></p>
+			</td>
+		</tr>
+		<tr>
+			<td>
+			<p>01.03.02 Прикладная математика и информатика</p>
+			</td>
+			<td>
+			<ol>
+				<li>Русский язык - 40</li>
+				<li>Основы инженерной математики - 40</li>
+				<li>Информационные технологии в профессиональной деятельности - 44</li>
+			</ol>
+			</td>
+		</tr>
+		<tr>
+			<td>
+			<p>02.03.02 Фундаментальная информатика и информационные технологии</p>
+			</td>
+			<td>
+			<ol>
+				<li>Русский язык - 40</li>
+				<li>Основы инженерной математики - 40</li>
+				<li>Информационные технологии в профессиональной деятельности - 44</li>
+			</ol>
+			</td>
+		</tr>
+		<tr>
+			<td>
+			<p>08.03.01 Строительство</p>
+			</td>
+			<td>
+			<ol>
+				<li>Русский язык - 40</li>
+				<li>Основы инженерной математики - 40</li>
+				<li>Основы инженерной физики - 39</li>
+			</ol>
+			</td>
+		</tr>
+		<tr>
+			<td>
+			<p>09.03.01 Информатика и вычислительная техника</p>
+			</td>
+			<td>
+			<ol>
+				<li>Русский язык - 40</li>
+				<li>Основы инженерной математики - 40</li>
+				<li>Информационные технологии в профессиональной деятельности - 44</li>
+			</ol>
+			</td>
+		</tr>
+		<tr>
+			<td>
+			<p>09.03.03 Прикладная информатика</p>
+			</td>
+			<td>
+			<ol>
+				<li>Русский язык - 40</li>
+				<li>Основы инженерной математики - 40</li>
+				<li>Информационные технологии в профессиональной деятельности - 44</li>
+			</ol>
+			</td>
+		</tr>
+		<tr>
+			<td>
+			<p>10.03.01 Информационная безопасность</p>
+			</td>
+			<td>
+			<ol>
+				<li>Русский язык - 40</li>
+				<li>Основы инженерной математики - 40</li>
+				<li>Информационные технологии в профессиональной деятельности - 44</li>
+			</ol>
+			</td>
+		</tr>
+		<tr>
+			<td>
+			<p>11.03.01 Радиотехника</p>
+			</td>
+			<td>
+			<ol>
+				<li>Русский язык - 40</li>
+				<li>Основы инженерной математики - 40</li>
+				<li>Информационные технологии в профессиональной деятельности - 44</li>
+			</ol>
+			</td>
+		</tr>
+		<tr>
+			<td>
+			<p>11.03.04 Электроника и наноэлектроника</p>
+			</td>
+			<td>
+			<ol>
+				<li>Русский язык - 40</li>
+				<li>Основы инженерной математики - 40</li>
+				<li>Информационные технологии в профессиональной деятельности - 44</li>
+			</ol>
+			</td>
+		</tr>
+		<tr>
+			<td>
+			<p>11.05.01 Радиоэлектронные системы и комплексы</p>
+			</td>
+			<td>
+			<ol>
+				<li>Русский язык - 40</li>
+				<li>Основы инженерной математики - 40</li>
+				<li>Информационные технологии в профессиональной деятельности - 44</li>
+			</ol>
+			</td>
+		</tr>
+		<tr>
+			<td>
+			<p>12.03.01 Приборостроение</p>
+			</td>
+			<td>
+			<ol>
+				<li>Русский язык - 40</li>
+				<li>Основы инженерной математики - 40</li>
+				<li>Информационные технологии в профессиональной деятельности - 44</li>
+			</ol>
+			</td>
+		</tr>
+		<tr>
+			<td>
+			<p>12.03.04 Биотехнические системы и технологии</p>
+			</td>
+			<td>
+			<ol>
+				<li>Русский язык - 40</li>
+				<li>Основы инженерной математики - 40</li>
+				<li>Информационные технологии в профессиональной деятельности - 44</li>
+			</ol>
+			</td>
+		</tr>
+		<tr>
+			<td>
+			<p>13.03.01 Теплоэнергетика и теплотехника</p>
+			</td>
+			<td>
+			<ol>
+				<li>Русский язык - 40</li>
+				<li>Основы инженерной математики - 40</li>
+				<li>Основы инженерной физики - 39</li>
+			</ol>
+			</td>
+		</tr>
+		<tr>
+			<td>
+			<p>13.03.02 Электроэнергетика и электротехника</p>
+			</td>
+			<td>
+			<ol>
+				<li>Русский язык - 40</li>
+				<li>Основы инженерной математики - 40</li>
+				<li>Основы инженерной физики - 39</li>
+			</ol>
+			</td>
+		</tr>
+		<tr>
+			<td>
+			<p>13.03.03 Энергетическое машиностроение</p>
+			</td>
+			<td>
+			<ol>
+				<li>Русский язык - 40</li>
+				<li>Основы инженерной математики - 40</li>
+				<li>Основы инженерной физики - 39</li>
+			</ol>
+			</td>
+		</tr>
+		<tr>
+			<td>
+			<p>14.03.01 Ядерная энергетика и теплофизика</p>
+			</td>
+			<td>
+			<ol>
+				<li>Русский язык - 40</li>
+				<li>Основы инженерной математики - 40</li>
+				<li>Основы инженерной физики - 39</li>
+			</ol>
+			</td>
+		</tr>
+		<tr>
+			<td>
+			<p>15.03.01 Машиностроение</p>
+			</td>
+			<td>
+			<ol>
+				<li>Русский язык - 40</li>
+				<li>Основы инженерной математики - 40</li>
+				<li>Основы инженерной физики - 39</li>
+			</ol>
+			</td>
+		</tr>
+		<tr>
+			<td>
+			<p>15.03.03 Прикладная механика</p>
+			</td>
+			<td>
+			<ol>
+				<li>Русский язык - 40</li>
+				<li>Основы инженерной математики - 40</li>
+				<li>Основы инженерной физики - 39</li>
+			</ol>
+			</td>
+		</tr>
+		<tr>
+			<td>
+			<p>15.03.02 Технологические машины и оборудование</p>
+			</td>
+			<td>
+			<ol>
+				<li>Русский язык - 40</li>
+				<li>Основы инженерной математики - 40</li>
+				<li>Основы инженерной физики - 39</li>
+			</ol>
+			</td>
+		</tr>
+		<tr>
+			<td>
+			<p>15.03.06 Мехатроника и робототехника</p>
+			</td>
+			<td>
+			<ol>
+				<li>Русский язык - 40</li>
+				<li>Основы инженерной математики - 40</li>
+				<li>Основы инженерной физики - 39</li>
+			</ol>
+			</td>
+		</tr>
+		<tr>
+			<td>
+			<p>27.03.02 Управление качеством</p>
+			</td>
+			<td>
+			<ol>
+				<li>Русский язык - 40</li>
+				<li>Основы инженерной математики - 40</li>
+				<li>Информационные технологии в профессиональной деятельности - 44</li>
+			</ol>
+			</td>
+		</tr>
+		<tr>
+			<td>
+			<p>27.03.04 Управление в технических системах</p>
+			</td>
+			<td>
+			<ol>
+				<li>Русский язык - 40</li>
+				<li>Основы инженерной математики - 40</li>
+				<li>Информационные технологии в профессиональной деятельности - 44</li>
+			</ol>
+			</td>
+		</tr>
+		<tr>
+			<td>
+			<p>38.03.01 Экономика</p>
+			</td>
+			<td>
+			<ol>
+				<li>Русский язык - 40</li>
+				<li>Математика в экономике - 40</li>
+				<li>Основы общественных наук - 45</li>
+			</ol>
+			</td>
+		</tr>
+		<tr>
+			<td>
+			<p>38.03.02 Менеджмент</p>
+			</td>
+			<td>
+			<ol>
+				<li>Русский язык - 40</li>
+				<li>Математика в экономике - 40</li>
+				<li>Основы общественных наук - 45</li>
+			</ol>
+			</td>
+		</tr>
+		<tr>
+			<td>
+			<p>38.03.05 Бизнес-информатика</p>
+			</td>
+			<td>
+			<ol>
+				<li>Русский язык - 40</li>
+				<li>Математика в экономике - 40</li>
+				<li>Основы общественных наук - 45</li>
+			</ol>
+			</td>
+		</tr>
+		<tr>
+			<td>
+			<p>40.03.01 Юриспруденция</p>
+			</td>
+			<td>
+			<ol>
+				<li>Русский язык - 40</li>
+				<li>Основы общественных наук - 45</li>
+				<li>Основы исторических знаний - 36</li>
+			</ol>
+			</td>
+		</tr>
+		<tr>
+			<td>
+			<p>41.03.05 Международные отношения</p>
+			</td>
+			<td>
+			<ol>
+				<li>Русский язык - 40</li>
+				<li>Основы исторических знаний - 36</li>
+				<li>Основы общественных наук - 45</li>
+			</ol>
+			</td>
+		</tr>
+		<tr>
+			<td>
+			<p>42.03.01 Реклама и связи с общественностью</p>
+			</td>
+			<td>
+			<ol>
+				<li>Русский язык - 40</li>
+				<li>Основы общественных наук - 45</li>
+				<li>Основы исторических знаний - 36</li>
+			</ol>
+			</td>
+		</tr>
+		<tr>
+			<td>
+			<p>45.03.02 Лингвистика</p>
+			</td>
+			<td>
+			<p>Только по результатам ЕГЭ:</p>
+
+			<ol>
+				<li>Русский язык - 40</li>
+				<li>Иностранный язык - 30</li>
+				<li>История - 36 или Обществознание - 45 или Литература - 40</li>
+			</ol>
+			</td>
+		</tr>
+		<tr>
+			<td>
+			<p>54.03.01 Дизайн</p>
+			</td>
+			<td>
+			<ol>
+				<li>Русский язык - 40</li>
+				<li>Основы общественных наук - 45</li>
+				<li>Рисунок - 40</li>
+				<li>Портфолио - 40</li>
+			</ol>
+			</td>
+		</tr>
+	</tbody>
+</table>
+</div>
+</div>
+
+<div class="full"><input class="hide" id="hd-8" type="checkbox" value="on" /> <label for="hd-8"> </label>
+
+<div class="hidehead ui-corner-all"><label for="hd-8"><span style="color: rgb(73, 73, 73); font-size: 24px;">Приоритетность вступительных испытаний</span> </label>
+
+<div style="float: right; width: 40px; height: 20px; color: rgb(73, 73, 73); font-size: 24px;"><label for="hd-8">&raquo;&nbsp;&raquo; </label></div>
+<label for="hd-8"> </label></div>
+<label for="hd-8"> </label>
+
+<div><b>При приеме на обучение по программам бакалавриата и программам специалитета при ранжировании поступающих по результатам вступительных испытаний, устанавливается следующая приоритетность. </b>
+
+<table border="0" cellpadding="0" cellspacing="0" class="form-grid thin-grid align-left" width="100%">
+	<tbody>
+		<tr style="font-weight: bold; background-color: rgb(240, 255, 240);">
+			<td>первый приоритет</td>
+			<td>второй приоритет</td>
+			<td>третий приоритет</td>
+		</tr>
+		<tr>
+			<td>&nbsp;- математика<br />
+			&nbsp;- основы инженерной математики<br />
+			&nbsp;- математика в экономике<br />
+			&nbsp;- иностранный язык<br />
+			&nbsp;- творческие испытания:<br />
+			&nbsp; &nbsp; &nbsp; &nbsp; рисунок<br />
+			&nbsp; &nbsp; &nbsp; &nbsp; портфолио</td>
+			<td>&nbsp;- физика<br />
+			&nbsp;- основы инженерной физики<br />
+			&nbsp;- информатика и ИКТ<br />
+			&nbsp;- информационные технологии в профессиональной деятельности<br />
+			&nbsp;- химия<br />
+			&nbsp;- обществознание<br />
+			&nbsp;- основы общественных наук<br />
+			&nbsp;- литература<br />
+			&nbsp;- история<br />
+			&nbsp;- основы исторических знаний</td>
+			<td>&nbsp;- русский язык</td>
+		</tr>
+		<tr>
+			<td colspan="3">&nbsp; При приеме на направления 40.03.01 Юриспруденция, 42.03.01 Реклама и связи с общественностью</td>
+		</tr>
+		<tr>
+			<td colspan="1">&nbsp;- обществознание<br />
+			&nbsp;- основы общественных наук</td>
+			<td colspan="1">&nbsp;- история&nbsp;<br />
+			&nbsp;- основы исторических знаний &nbsp;<br />
+			&nbsp;- иностранный язык<br />
+			&nbsp;- информатика и ИКТ</td>
+			<td colspan="1">&nbsp;- русский язык</td>
+		</tr>
+	</tbody>
+	<tbody>
+		<tr>
+			<td colspan="3">&nbsp; При приеме на направление 41.03.05 Международные отношения</td>
+		</tr>
+		<tr>
+			<td colspan="1">&nbsp;- история&nbsp;<br />
+			&nbsp;- основы исторических знаний &nbsp;</td>
+			<td colspan="1">&nbsp;- обществознание<br />
+			&nbsp;- основы общественных наук<br />
+			&nbsp;- иностранный язык<br />
+			&nbsp;- география</td>
+			<td colspan="1">&nbsp;- русский язык</td>
+		</tr>
+	</tbody>
+</table>
+</div>
+</div>
+
+<div class="full"><input class="hide" id="hd-9" type="checkbox" value="on" /> <label for="hd-9"> </label>
+
+<div class="hidehead ui-corner-all"><label for="hd-9"><span style="color: rgb(73, 73, 73); font-size: 24px;">Программы вступительных испытаний, примеры, банки заданий</span> </label>
+
+<div style="float: right; width: 40px; height: 20px; color: rgb(73, 73, 73); font-size: 24px;"><label for="hd-9">&raquo;&nbsp;&raquo; </label></div>
+<label for="hd-9"> </label></div>
+<label for="hd-9"> </label>
+
+<div>Программы вступительных испытаний, проводимых НИУ &laquo;МЭИ&raquo;&nbsp;самостоятельно:<br />
+Программа вступительного испытания по <a href="/docs/examus/bach/prog/examprog_rus.pdf" target="_blank">русскому языку</a><br />
+Программа вступительного испытания по <a href="/docs/examus/bach/prog/examprog_math.pdf" target="_blank">математике</a><br />
+Программа вступительного испытания по <a href="/docs/examus/bach/prog/examprog_physics.pdf" target="_blank">физике</a><br />
+Программа вступительного испытания по <a href="/docs/examus/bach/prog/examprog_geo.pdf" target="_blank">географии</a><br />
+Программа вступительного испытания по <a href="/docs/examus/bach/prog/examprog_literature.pdf" target="_blank">литературе</a><br />
+Программа вступительного испытания по <a href="/docs/examus/bach/prog/examprog_social.pdf" target="_blank">обществознанию</a><br />
+Программа вступительного испытания по <a href="/docs/examus/bach/prog/examprog_inf.pdf" target="_blank">информатике и ИКТ</a><br />
+Программа вступительного испытания по <a href="/docs/examus/bach/prog/examprog_chemistry.pdf" target="_blank">химии</a><br />
+Программа вступительного испытания по <a href="/docs/examus/bach/prog/examprog_history.pdf" target="_blank">истории</a><br />
+Программа вступительного испытания по <a href="/docs/examus/bach/prog/examprog_drawing.pdf" target="_blank">рисунку</a><br />
+Программа вступительного испытания по <a href="/docs/examus/bach/prog/examprog_portfolio.pdf" target="_blank">портфолио</a><br />
+Программа вступительного испытания по <a href="/docs/examus/bach/prog/examprog_english.pdf" target="_blank">английскому языку</a><br />
+Программа вступительного испытания по <a href="/docs/examus/bach/prog/examprog_engineeringmath.pdf" target="_blank">основам инженерной математики</a><br />
+Программа вступительного испытания по <a href="/docs/examus/bach/prog/examprog_economicmath.pdf" target="_blank">математике в экономике</a><br />
+Программа вступительного испытания по <a href="/docs/examus/bach/prog/examprog_engineeringphysics.pdf" target="_blank">основам инженерной физики</a><br />
+Программа вступительного испытания по <a href="/docs/examus/bach/prog/examprog_ITinf.pdf" target="_blank">информационным технологиям в профессиональной деятельности</a><br />
+Программа вступительного испытания по <a href="/docs/examus/bach/prog/examprog_basicsocial.pdf" target="_blank">основам общественных наук</a><br />
+Программа вступительного испытания по <a href="/docs/examus/bach/prog/examprog_basichistory.pdf" target="_blank">основам исторического знания</a><br />
+<br />
+Примеры вариантов:
+<ul>
+	<li><a href="/docs/examprog/example_var_rus.pdf" target="_blank">Русский язык (с ответами)</a></li>
+	<li><a href="/docs/examus/bach/example/example_var_math.pdf" target="_blank">Математика (с ответами)</a></li>
+	<li><a href="/docs/examprog/example_var_phis.pdf" target="_blank">Физика (с ответами)</a></li>
+	<li><a href="/docs/examprog/example_var_ikt.pdf" target="_blank">Информатика и ИКТ</a></li>
+	<li><a href="/docs/examprog/example_var_soc.pdf" target="_blank">Обществознание (с ответами)</a></li>
+	<li><a href="/docs/examus/bach/example/example_var_lit.pdf" target="_blank">Литература</a></li>
+	<li><a href="/docs/examprog/example_var_his.pdf" target="_blank">История</a></li>
+	<li><a href="/docs/examprog/example_var_eng.pdf" target="_blank">Английский язык</a></li>
+	<li><a href="/docs/examus/bach/example/example_var_geo.pdf" target="_blank">География</a></li>
+</ul>
+<br />
+Банки заданий:
+<ul>
+	<li><a href="/docs/examprog/bank_math.pdf" target="_blank">Математика</a></li>
+	<li><a href="/docs/examprog/bank_phys.pdf" target="_blank">Физика</a></li>
+	<li><a href="/docs/examprog/bank_ikt.pdf" target="_blank">Информатика и ИКТ</a></li>
+</ul>
+</div>
+</div>
+
+<p>&nbsp;</p>

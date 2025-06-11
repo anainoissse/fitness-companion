@@ -1,10 +1,9 @@
 const express = require('express');
-const jwt = require('jsonwebtoken');
 const pool = require('../db');
-
 const router = express.Router();
+const jwt = require('jsonwebtoken');
 
-// Middleware авторизации
+// Middleware для проверки токена
 const authMiddleware = (req, res, next) => {
   const authHeader = req.headers['authorization'];
   if (!authHeader) return res.status(401).json({ error: 'Нет токена' });
@@ -19,36 +18,22 @@ const authMiddleware = (req, res, next) => {
   }
 };
 
-// Маршрут поиска собеседников
-router.get('/match', authMiddleware, async (req, res) => {
-  const userId = req.userId;
-
+// Получить публичный профиль пользователя по id
+router.get('/:userId', authMiddleware, async (req, res) => {
+  const userId = req.params.userId;
   try {
-    // Получение профиля текущего пользователя
-    const userProfileRes = await pool.query(`
-      SELECT p.*, u.email
-      FROM profiles p
-      JOIN users u ON p.user_id = u.user_id
-      WHERE p.user_id = $1
-    `, [userId]);
-
-    if (userProfileRes.rows.length === 0) {
+    const result = await pool.query(
+      `SELECT first_name, last_name, city, experience_level, goals, workout_types, height, weight, about_text, profile_picture_url, birth_date
+       FROM profiles WHERE user_id = $1`, [userId]
+    );
+    if (result.rows.length === 0) {
       return res.status(404).json({ error: 'Профиль не найден' });
     }
-
-    const userProfile = userProfileRes.rows[0];
-
-    // SQL-запрос по вашему алгоритму
-    const matches = await pool.query(
-      'SELECT * FROM possible_matches WHERE seeker_id = $1',
-      [userId]
-    );
-
-    res.json(matches.rows);
+    res.json(result.rows[0]);
   } catch (err) {
     console.error(err);
     res.status(500).json({ error: 'Ошибка сервера' });
   }
 });
 
-module.exports = router;
+module.exports = router; 

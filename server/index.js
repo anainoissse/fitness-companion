@@ -14,10 +14,12 @@ app.use(express.json()); // парсинг JSON
 const authRoutes = require('./routes/auth.js');
 const matchRoutes = require('./routes/match.js');
 const chatRoutes = require('./routes/chat.js');
+const usersRoutes = require('./routes/users.js');
 
 app.use('/api/auth', authRoutes);
 app.use('/api/chat', chatRoutes);
 app.use('/api/match', matchRoutes); // /api/match
+app.use('/api/users', usersRoutes);
 
 // Статика React-приложения
 app.use(express.static(path.join(__dirname, '../client/build')));

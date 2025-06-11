@@ -25,6 +25,7 @@ const QuestionnairePage = () => {
         about_text: '',
         photo: null
     });
+    const [consent, setConsent] = useState(false);
 
     const handleChange = (e) => {
         const { name, value } = e.target;
@@ -57,7 +58,18 @@ const QuestionnairePage = () => {
     };
 
     const handlePhotoChange = (e) => {
-        setFormData(prev => ({ ...prev, photo: e.target.files[0] }));
+        const file = e.target.files[0];
+        if (file && !file.type.startsWith('image/')) {
+            alert('Можно выбрать только изображение.');
+            e.target.value = '';
+            setFormData(prev => ({ ...prev, photo: null }));
+            return;
+        }
+        setFormData(prev => ({ ...prev, photo: file }));
+    };
+
+    const handleConsentChange = (e) => {
+        setConsent(e.target.checked);
     };
 
     const handleSubmit = async (e) => {
@@ -289,7 +301,6 @@ const QuestionnairePage = () => {
                                     onChange={handlePhotoChange}
                                     className="file-upload-input"
                                     accept="image/*"
-                                    required
                                 />
                                 <span className="file-upload-text">
                                     {formData.photo ? formData.photo.name : 'Выберите файл'}
@@ -299,7 +310,21 @@ const QuestionnairePage = () => {
                         </div>
                     </div>
 
-                    <button type="submit" className="submit-button">
+                    <div className="form-group">
+                        <label className="checkbox-label">
+                            <input
+                                type="checkbox"
+                                checked={consent}
+                                onChange={handleConsentChange}
+                                required
+                                className="checkbox-input"
+                            />
+                            <span className="checkbox-custom"></span>
+                            <span>Я даю согласие на обработку моих персональных данных</span>
+                        </label>
+                    </div>
+
+                    <button type="submit" className="submit-button" disabled={!consent}>
                         Начать поиск единомышленников
                     </button>
                 </form>

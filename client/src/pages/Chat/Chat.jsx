@@ -1,7 +1,7 @@
 // src/pages/Chat/Chat.jsx
 import React, { useState, useEffect, useRef } from 'react';
 import { useNavigate, useParams } from 'react-router-dom';
-import { chatApi } from '../../api.js';
+import { chatApi, feedApi } from '../../api.js';
 import './Chat.css';
 import logo from '../../assets/images/logo1.png';
 import { useAuth } from '../../context/AuthContext.js';
@@ -21,6 +21,8 @@ const Chat = () => {
     const [error, setError] = useState('');
     const socket = useRef(null);
     const messagesEndRef = useRef(null);
+    const [showUserModal, setShowUserModal] = useState(false);
+    const [userDetails, setUserDetails] = useState(null);
 
     // Загрузка списка чатов
     useEffect(() => {
@@ -183,6 +185,74 @@ const Chat = () => {
         scrollToBottom();
     }, [selectedChat?.messages?.length, selectedChat?.id]);
 
+    // Функция для открытия модального окна с инфо о пользователе
+    const handleOpenUserModal = async () => {
+        if (!selectedChat) return;
+        try {
+            const res = await feedApi.getUserDetails(selectedChat.userId);
+            setUserDetails(res.data);
+            setShowUserModal(true);
+        } catch (err) {
+            console.error('Ошибка загрузки данных пользователя:', err);
+        }
+    };
+
+    // Вспомогательные функции для отображения информации о пользователе (скопировано из Feed)
+    function getExperienceLabel(exp) {
+        switch (exp) {
+            case 'beginner': return 'Новичок (0-6 мес.)';
+            case 'intermediate': return 'Продолжающий (6 мес.-2 года)';
+            case 'advanced': return 'Профи (2+ года)';
+            default: return exp;
+        }
+    }
+    function getGoalLabel(goal) {
+        switch (goal) {
+            case 'muscle_gain':
+            case 'mass_gain': return 'Набор массы';
+            case 'weight_loss': return 'Сброс веса';
+            case 'maintenance': return 'Поддержание формы';
+            case 'other': return 'Другое';
+            default: return goal;
+        }
+    }
+    function getInterestLabel(interest) {
+        switch (interest) {
+            case 'strength': return 'Силовые';
+            case 'cardio': return 'Кардио';
+            case 'group': return 'Групповые';
+            default: return interest;
+        }
+    }
+    function getAgeFromBirthDate(birthDate) {
+        if (!birthDate) return '';
+        const today = new Date();
+        const birth = new Date(birthDate);
+        let age = today.getFullYear() - birth.getFullYear();
+        const m = today.getMonth() - birth.getMonth();
+        if (m < 0 || (m === 0 && today.getDate() < birth.getDate())) {
+            age--;
+        }
+        return age;
+    }
+    function getAgeWithWord(age) {
+        if (!age) return '—';
+        age = Number(age);
+        if (isNaN(age)) return age;
+        const lastDigit = age % 10;
+        const lastTwoDigits = age % 100;
+        if (lastTwoDigits >= 11 && lastTwoDigits <= 14) {
+            return `${age} лет`;
+        }
+        if (lastDigit === 1) {
+            return `${age} год`;
+        }
+        if (lastDigit >= 2 && lastDigit <= 4) {
+            return `${age} года`;
+        }
+        return `${age} лет`;
+    }
+
     if (isLoading) {
         return (
             <div className="loading-container">
@@ -222,8 +292,8 @@ const Chat = () => {
                                         {chat.lastMessage || 'Нет сообщений'}
                                     </p>
                                 </div>
-                                {chat.unread > 0 && (
-                                    <span className="unread-badge">{chat.unread}</span>
+                                {Number(chat.unread) > 0 && (
+                                    <span className="unread-badge" style={{minWidth: 12, width: 12, height: 12, padding: 0, fontSize: 0, background: '#f5664c', borderRadius: '50%', display: 'inline-block', marginLeft: 8}} title="Есть непрочитанные сообщения"></span>
                                 )}
                             </div>
                         ))}
@@ -234,10 +304,23 @@ const Chat = () => {
                 <div className="dialog-area">
                     {selectedChat ? (
                         <>
-                            <div className="dialog-header">
-                                <div className="dialog-partner">
-                                    <img src={selectedChat.photo || '/default-avatar.jpg'} alt={`${selectedChat.firstName} ${selectedChat.lastName}`} className="dialog-photo" onError={e => { e.target.src = '/default-avatar.jpg'; }} />
-                                    <h3 className="dialog-name">{selectedChat.firstName} {selectedChat.lastName}</h3>
+                            <div className="chat-header">
+                                <div className="chat-user-info">
+                                    <img
+                                        src={selectedChat.photo || '/default-avatar.jpg'}
+                                        alt="Аватар"
+                                        className="chat-user-photo"
+                                        style={{ cursor: 'pointer' }}
+                                        onClick={handleOpenUserModal}
+                                        aria-label="Показать информацию о пользователе"
+                                    />
+                                    <span
+                                        className="chat-user-name"
+                                        onClick={handleOpenUserModal}
+                                        aria-label="Показать информацию о пользователе"
+                                    >
+                                        {selectedChat.firstName} {selectedChat.lastName}
+                                    </span>
                                 </div>
                             </div>
 
@@ -286,6 +369,44 @@ const Chat = () => {
                     )}
                 </div>
             </div>
+            {showUserModal && userDetails && (
+                <div className="modal-overlay">
+                    <div className="user-modal">
+                        <div className="modal-content">
+                            <button className="close-modal" onClick={() => setShowUserModal(false)}>&times;</button>
+                            <div className="modal-header">
+                                <img src={userDetails.profile_picture_url || '/default-avatar.jpg'} alt={`${userDetails.first_name} ${userDetails.last_name}`} className="modal-photo" onError={e => { e.target.src = '/default-avatar.jpg'; }} />
+                                <div className="modal-user-info">
+                                    <h3>{userDetails.first_name} {userDetails.last_name}</h3>
+                                    <p className="user-detail"><strong>Город:</strong> {userDetails.city}</p>
+                                    <p className="user-detail"><strong>Возраст:</strong> {userDetails.birth_date ? getAgeWithWord(getAgeFromBirthDate(userDetails.birth_date)) : '—'}</p>
+                                    <p className="user-detail"><strong>Опыт:</strong> {getExperienceLabel(userDetails.experience_level)}</p>
+                                </div>
+                            </div>
+                            <div className="modal-body">
+                                <div className="details-section">
+                                    <p><strong>Цель тренировок:</strong> {getGoalLabel(userDetails.goals && (Array.isArray(userDetails.goals) ? userDetails.goals[0] : typeof userDetails.goals === 'string' ? userDetails.goals.replace(/[{}]/g, '').split(',')[0] : '')) || '—'}</p>
+                                </div>
+                                <div className="details-section">
+                                    <h4>Интересующие виды тренировок:</h4>
+                                    <div className="interests-list">
+                                        {userDetails.workout_types && (Array.isArray(userDetails.workout_types) ? userDetails.workout_types : typeof userDetails.workout_types === 'string' ? userDetails.workout_types.replace(/[{}]/g, '').split(',').map(s => s.trim()).filter(Boolean) : []).length > 0
+                                            ? (Array.isArray(userDetails.workout_types) ? userDetails.workout_types : typeof userDetails.workout_types === 'string' ? userDetails.workout_types.replace(/[{}]/g, '').split(',').map(s => s.trim()).filter(Boolean) : []).map(interest => (
+                                                <span key={interest} className="interest-tag">{getInterestLabel(interest)}</span>
+                                            ))
+                                            : <span style={{color: '#aaa'}}>—</span>
+                                        }
+                                    </div>
+                                </div>
+                                <div className="details-section">
+                                    <h4>О себе:</h4>
+                                    <p>{userDetails.about_text}</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            )}
         </div>
     );
 };

@@ -18,7 +18,7 @@ const Header = () => {
     if (!currentUser) return;
     try {
       const res = await chatApi.getConversations();
-      const totalUnread = res.data.reduce((sum, chat) => sum + (chat.unread || 0), 0);
+      const totalUnread = res.data.reduce((sum, chat) => sum + Number(chat.unread || 0), 0);
       setUnreadCount(totalUnread);
     } catch (e) {
       setUnreadCount(0);

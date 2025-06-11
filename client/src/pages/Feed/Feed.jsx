@@ -27,7 +27,7 @@ const Feed = () => {
                 });
                 // Преобразуем данные к нужному формату для карточек
                 let users = response.data.map(u => ({
-                    id: u.user_id,
+                    id: u.partner_id,
                     firstName: u.first_name,
                     lastName: u.last_name,
                     city: u.city || '',
@@ -55,7 +55,13 @@ const Feed = () => {
             }
         };
 
-        fetchUsers();
+        // Проверяем, нужно ли обновить ленту
+        if (localStorage.getItem('feedNeedsRefresh') === 'true') {
+            localStorage.removeItem('feedNeedsRefresh');
+            fetchUsers();
+        } else {
+            fetchUsers();
+        }
     }, [currentUser]);
 
     const toggleCardExpand = (user) => {

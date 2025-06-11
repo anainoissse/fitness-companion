@@ -482,6 +482,8 @@ select.form-select {
     width: 100%;
     position: static;
     z-index: auto;
+    overflow-x: hidden;
+    overflow-y: auto;
 }
 
 .profile-header {

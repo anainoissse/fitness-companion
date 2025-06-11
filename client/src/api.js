@@ -84,7 +84,9 @@ export const getMoreUsers = (page, limit = 10) => {
 };
 
 export const getUserDetails = (userId) => {
-  return axios.get(`${API_URL}/users/${userId}`);
+  return axios.get(`${API_URL}/users/${userId}`, {
+    headers: { Authorization: `Bearer ${localStorage.getItem('token')}` }
+  });
 };
 
 export const reportUser = (userId, reason) => {
